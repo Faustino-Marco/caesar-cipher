@@ -22,9 +22,22 @@ def encrypt(plain, shift):
   """
   encrypted = ""
   for char in plain:
-    num = int(char)
-    shifted_num = (num + shift) % 10 # must be 0-9
-    encrypted += str(shifted_num)
+    num = ord(char)
+    print("plain char: ", char)
+
+    if ord(char) in range(65, 90):
+      shifted_num = ((num + (shift - 65)) % 26 + 65)
+      print("original: ", ord(char))
+      print("shifted: ", shifted_num)
+      encrypted += str(chr(shifted_num))
+      print("progress: ", encrypted) 
+
+    if ord(char) in range(97, 123):
+      shifted_num = ((num + (shift - 97)) % 26 + 97)
+      print("original: ", ord(char))
+      print("shifted: ", shifted_num)
+      encrypted += str(chr(shifted_num))
+      print("progress: ", encrypted)
 
   return encrypted
   
@@ -45,13 +58,39 @@ def decrypt(cipher, shift):
   return encrypt(cipher, -shift)
 
 
-def crack():
+def crack(code):
   """
   Function that will decode the cipher so that an encrypted message can be transformed into its original state WITHOUT access to the key.
 
   Devise a method for the computer to determine if code was broken with minimal human guidance.
   """
+  encrypted = ""
+  for char in code:
+    num = ord(char)
+    print("code char: ", char)
+
+    if num in range(65, 90):
+      shifted_num = ((num + (shift - 65)) % 26 + 65)
+      print("original: ", ord(char))
+      print("shifted: ", shifted_num)
+      encrypted += str(chr(shifted_num))
+      print("progress: ", encrypted) 
+
+    if ord(char) in range(97, 123):
+      shifted_num = ((num + (shift - 97)) % 26 + 97)
+      print("original: ", ord(char))
+      print("shifted: ", shifted_num)
+      encrypted += str(chr(shifted_num))
+      print("progress: ", encrypted)
+
+  return encrypted
 
 
 if __name__ == "__main__":
   pins = []
+  assert 1 + 1 == 2
+  assert ord('A') == 65
+  assert encrypt('A', 5) == 'F'
+  assert encrypt('z', 9) == 'i'
+
+print(encrypt("zebra", 9))

@@ -9,6 +9,8 @@
 ### Links and Resources
 - back-end server url: tbd
 - front-end application: tbd
+- [Ord() and chr()](https://www.digitalocean.com/community/tutorials/python-ord-chr) 
+- [ASCII Chart](https://python-reference.readthedocs.io/en/latest/docs/str/ASCII.html)
 
 ### Setup
 <!-- .env requirements (where applicable) -->
